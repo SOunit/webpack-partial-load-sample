@@ -1,12 +1,11 @@
-// ES2015 syntax for import
-// this is modern
-import sum from './sum';
-// no export
-import './image_viewer';
-
-// CommonJS syntax to import
-// this is legacy
-// const sum = require('./sum');
-
-const total = sum(10, 8);
-console.log(total);
+const button = document.createElement('button');
+button.innerText = 'Click me';
+button.onclick = () => {
+  // ES2015 special syntax
+  // client ask server to find the file
+  import('./image_viewer').then((module) => {
+    console.log(module);
+    module.default();
+  });
+};
+document.body.appendChild(button);
